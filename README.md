@@ -1,7 +1,32 @@
-STAR THE REPO IF YOURE COOL
+# Project Title
 
-jStack - an opinionated stack to ship high-performance, low-cost Next.js apps inspired by the T3 stack.
+## Table of Contents
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Contributing](#contributing)
+5. [License](#license)
 
-This is an early-stage stack so probably dont use in production yet. If you're wild enough to do so despite this warning, let me know your website URL so I can feature you lol
+## Description
+This project is a [brief description of your project].
 
-documentation coming soon, for now just clone this repo, fill out the .env.example :))
+## Installation
+To install this project, follow these steps:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+## Usage
+To use this project, follow these steps:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+## Contributing
+To contribute to this project, follow these steps:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+## License
+This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
