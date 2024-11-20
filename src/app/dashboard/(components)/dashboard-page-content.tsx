@@ -1,17 +1,19 @@
 "use client"
 
-import { client } from "@/app/lib/client"
 import { LoadingSpinner } from "@/components/loading-spinner"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { format, formatDistanceToNow } from "date-fns"
 import { ArrowRight, BarChart2, Clock, Database, Trash2 } from "lucide-react"
 import Link from "next/link"
 import { DashboardEmptyState } from "./dashboard-empty-state"
 import { useState } from "react"
+import { Modal } from "@/components/ui/modal"
+import { client } from "@/lib/client"
 
 export const DashboardPageContent = () => {
     const [deletingCategory, setDeletingCategory] = useState<string | null>(null)
+    const queryClient = useQueryClient()
 
     const { data: categories, isPending: isEventCategoriesLoading } = useQuery({
         queryKey: ["user-event-categories"],
@@ -21,6 +23,19 @@ export const DashboardPageContent = () => {
             return categories
         }
     })
+
+    const { mutate: deleteCategory, isPending: isDeletingCategory } = useMutation({
+        mutationFn: async (name: string) => {
+
+            await client.category.deleteCategory.$post({ name })
+
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["user-event-categories"] })
+            setDeletingCategory(null)
+        }
+    })
+
 
     if (isEventCategoriesLoading) {
 
@@ -118,7 +133,7 @@ export const DashboardPageContent = () => {
                 ))}
             </ul>
 
-            {/* <Modal
+            <Modal
                 showModal={!!deletingCategory}
                 setShowModal={() => setDeletingCategory(null)}
                 className="max-w-md p-8"
@@ -129,7 +144,7 @@ export const DashboardPageContent = () => {
                             Delete Category
                         </h2>
                         <p className="text-sm/6 text-gray-600">
-                            Are you sure you want to delete the category "{deletingCategory}"?
+                            Are you sure you want to delete the category {deletingCategory} ?
                             This action cannot be undone.
                         </p>
                     </div>
@@ -149,7 +164,7 @@ export const DashboardPageContent = () => {
                         </Button>
                     </div>
                 </div>
-            </Modal> */}
+            </Modal>
         </>
     )
 

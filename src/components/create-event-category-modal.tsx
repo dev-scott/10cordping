@@ -11,7 +11,8 @@ import { Label } from "./ui/label"
 import { Input } from "./ui/input"
 import { cn } from "@/utils"
 import { Button } from "./ui/button"
-import { client } from "@/app/lib/client"
+import { client } from "@/lib/client"
+
 
 const EVENT_CATEGORY_VALIDATOR = z.object({
     name: CATEGORY_NAME_VALIDATOR,
@@ -63,7 +64,7 @@ export const CreateEventCategoryModal = ({
 
     const { mutate: createEventCategory, isPending } = useMutation({
         mutationFn: async (data: EventCategoryForm) => {
-            // await client.category.createEventCategory.$post(data)
+            await client.category.createEventCategory.$post(data)
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["user-event-categories"] })

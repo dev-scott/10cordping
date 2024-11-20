@@ -1,7 +1,7 @@
-import { client } from "@/app/lib/client"
 import { CreateEventCategoryModal } from "@/components/create-event-category-modal"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { client } from "@/lib/client"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export const DashboardEmptyState = () => {
@@ -9,7 +9,7 @@ export const DashboardEmptyState = () => {
 
     const { mutate: insertQuickstartCategories, isPending } = useMutation({
         mutationFn: async () => {
-            //   await client.category.insertQuickstartCategories.$post()
+              await client.category.insertQuickstartCategories.$post()
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["user-event-categories"] })
