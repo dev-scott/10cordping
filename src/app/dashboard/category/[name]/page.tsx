@@ -41,9 +41,11 @@ const Page = async ({ params }: PageProps) => {
         },
     })
 
+    console.log("category", category)
     if (!category) return notFound()
 
     const hasEvents = category._count.events > 0
+    console.log("hasEvents in category page", hasEvents)
 
     return (
         <DashboardPage title={`${category.emoji} ${category.name} events`}>

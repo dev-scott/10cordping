@@ -1,7 +1,7 @@
 import { db } from "@/db"
 import { router } from "../__internals/router"
 import { privateProcedure } from "../procedures"
-import { startOfDay, startOfMonth } from "date-fns"
+import { startOfDay, startOfMonth, startOfWeek } from "date-fns"
 import { z } from "zod"
 import { CATEGORY_NAME_VALIDATOR } from "@/lib/validators/category-validator"
 import { parseColor } from "@/utils"
