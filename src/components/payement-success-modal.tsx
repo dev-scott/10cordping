@@ -17,6 +17,7 @@ export const PaymentSuccessModal = () => {
     queryKey: ["user-plan"],
     queryFn: async () => {
       const res = await client.payment.getUserPlan.$get()
+      console.log("this is user plan", res.json())
       return await res.json()
     },
     refetchInterval: (query) => {

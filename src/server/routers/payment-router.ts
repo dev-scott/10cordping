@@ -15,6 +15,7 @@ export const paymentRouter = router({
   }),
   getUserPlan: privateProcedure.query(async ({ c, ctx }) => {
     const { user } = ctx
+    console.log("user plan in payement-router.ts" , user)
     return c.json({ plan: user.plan })
   }),
 })

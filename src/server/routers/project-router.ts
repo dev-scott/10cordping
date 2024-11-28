@@ -7,6 +7,7 @@ import { z } from "zod"
 
 export const projectRouter = router({
   getUsage: privateProcedure.query(async ({ c, ctx }) => {
+    console.log("in the getUser plan")
     const { user } = ctx
 
     const currentDate = startOfMonth(new Date())
@@ -18,6 +19,8 @@ export const projectRouter = router({
         month: currentDate.getMonth() + 1,
       },
     })
+
+    console.log("here is the quota i have", quota)
 
     const eventCount = quota?.count ?? 0
 
