@@ -63,3 +63,4 @@ const Page = async ({ searchParams }: PageProps) => {
 }
 
 export default Page
+export const runtime = 'edge'

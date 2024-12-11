@@ -13,6 +13,9 @@ const REQUEST_VALIDATOR = z
   })
   .strict()
 
+  export const runtime = 'edge'
+
+
 export const POST = async (req: NextRequest) => {
   try {
     const authHeader = req.headers.get("Authorization")
