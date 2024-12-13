@@ -5,6 +5,8 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
+    isrMemoryCacheSize: 0,
+    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

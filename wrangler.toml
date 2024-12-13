@@ -1,7 +1,7 @@
 name = "10cordping"
 main = "src/server/index.ts"
 compatibility_date = "2024-03-29"
-compatibility_flags = ["nodejs_compat", "streams_enable_constructors"]
+compatibility_flags = []
 
 [build]
 command = "npm run build"
