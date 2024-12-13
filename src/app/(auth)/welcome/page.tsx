@@ -147,4 +147,4 @@ const BackgroundPattern = (props: LucideProps) => {
 }
 
 export default Page
-export const runtime = 'edge'
+// export const runtime = 'edge'
