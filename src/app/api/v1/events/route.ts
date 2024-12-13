@@ -14,6 +14,7 @@ const REQUEST_VALIDATOR = z
   .strict()
 
   export const runtime = 'edge'
+  export const preferredRegion = 'auto'
 
 
 export const POST = async (req: NextRequest) => {

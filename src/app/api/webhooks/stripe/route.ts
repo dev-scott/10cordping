@@ -4,6 +4,7 @@ import { headers } from "next/headers"
 import Stripe from "stripe"
 
 export const runtime = 'edge'
+export const preferredRegion = 'auto'
 
 export async function POST(req: Request) {
   const body = await req.text()
