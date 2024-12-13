@@ -1,4 +1,16 @@
-name = "<YOUR_PROJECT_NAME>"
+name = "10cordping"
 main = "src/server/index.ts"
 compatibility_date = "2024-03-29"
 compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "npm run build"
+[build.upload]
+format = "modules"
+
+[[build.upload.rules]]
+type = "ESModule"
+globs = ["**/*.js"]
+
+[site]
+bucket = ".next/static"
