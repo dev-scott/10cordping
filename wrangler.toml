@@ -13,4 +13,7 @@ type = "ESModule"
 globs = ["**/*.js"]
 
 [site]
-bucket = ".next/static"
+bucket = ".next"
+
+[pages]
+build_output_dir = ".next"

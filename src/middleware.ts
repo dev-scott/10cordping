@@ -1,12 +1,20 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
-
-export default clerkMiddleware();
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
+    /*
+     * Match all request paths except:
+     * 1. /api/ (API routes)
+     * 2. /_next/ (Next.js internals)
+     * 3. /_static (static files)
+     * 4. /_vercel (Vercel internals)
+     * 5. /favicon.ico, /sitemap.xml (static files)
+     */
+    '/((?!api|_next|_static|_vercel|favicon.ico|sitemap.xml).*)',
   ],
-};
+}
+
+export async function middleware(request: NextRequest) {
+  return NextResponse.next()  
+}
