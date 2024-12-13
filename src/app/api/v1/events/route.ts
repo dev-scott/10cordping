@@ -13,7 +13,7 @@ const REQUEST_VALIDATOR = z
   })
   .strict()
 
-  // export const runtime = 'edge'
+  export const runtime = 'edge'
 
 
 export const POST = async (req: NextRequest) => {
